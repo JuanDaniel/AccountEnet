@@ -1,0 +1,10 @@
+#Thu Oct 24 01:17:23 CDT 2013
+eclipse.preferences.version=1
+encoding//src/Common/Configuration.py=utf-8
+encoding//src/Common/Extractor.py=utf-8
+encoding//src/Common/LoadAccess.py=utf-8
+encoding//src/Common/Singleton.py=utf-8
+encoding//src/DC/FrmMain.py=utf-8
+encoding//src/DataBase/DB.py=utf-8
+encoding//src/Enviroment/ImpMain.py=utf-8
+encoding//src/Main.py=utf-8
