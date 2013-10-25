@@ -14,6 +14,3 @@ if __name__ == '__main__':
     frm = ImpMain(None)
     frm.execute()
     app.exec_()
-
-    #extractor = Extractor(configuration.getAccounting())
-    #extractor.extract()

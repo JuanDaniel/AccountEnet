@@ -17,3 +17,12 @@ class FrmMain(QtGui.QMainWindow, Ui_MainWindow):
     def __init__(self, parent = None):
         super(FrmMain, self).__init__(parent)
         self.setupUi(self)
+
+        '''
+        Date Start
+        '''
+        #self.dateEdit_2.set
+
+        '''
+        Date End
+        '''

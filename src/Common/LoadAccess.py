@@ -25,13 +25,13 @@ class LoadAccess:
 
         self.__extractor = Extractor(self.__configuration.getAccounting())
 
-    def getAccess(self):
+    def getAccess(self, date_start=None, date_end=None, phone=None):
         db = DB()
 
         if(self.__checkNetwork()):
             db.insertAccess(self.__extractor.extract())
 
-        print db.getAccess()
+        return db.getAccess(date_start, date_end, phone)
 
     def __checkNetwork(self):
         '''
