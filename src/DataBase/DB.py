@@ -14,24 +14,32 @@ import os
 class DB:
     __metaclass__ = Singleton
     '''
-    Make the access to sqlite data base
+    It class make the access to database and execute the queries
     '''
 
     def getAccess(self, date_start=None, date_end=None, phone=None):
         self.__connect()
 
-        sql = 'SELECT date_start, date_end,  phone, duration FROM access'
+        sql = "SELECT date_start, time_start, date_end, time_end, phone, duration FROM access"
 
         if(date_start):
-            sql = sql + ' WHERE date_start >= %s' %date_start
-        if(date_end):
-            sql = sql + ' AND date_end <= %s' %date_end
+            sql = sql + " WHERE date_start >= '%s'" %date_start
+            if(date_end):
+                sql = sql + " AND date_end <= '%s'" %date_end
+            if(phone):
+                sql = sql + " AND phone = '%s'" %phone
+
+        elif(date_end):
+            sql = sql + " WHERE date_end <= '%s'" %date_end
+            if(phone):
+                sql = sql + " AND phone = '%s'" %phone
+
         if(phone):
-            sql = sql + ' AND phone = %s' %phone
+            sql = sql + " WHERE phone = '%s'" %phone
 
         access = []
         for a in self.__cursor.execute(sql):
-            access.append({'date_start':a[0], 'date_end':a[1], 'phone':a[2], 'duration':a[3]})
+            access.append({'date_start':a[0], 'time_start':a[1], 'date_end':a[2], 'time_end':a[3], 'phone':a[4], 'duration':a[5]})
 
         self.__close()
 
@@ -42,7 +50,7 @@ class DB:
 
         for a in access:
             if(not self.__exist(a)):
-                sql = "INSERT INTO access(date_start, date_end, phone, duration) VALUES('%s', '%s', '%s', '%s')" %(a['date_start'], a['date_end'], a['phone'], a['duration'])
+                sql = "INSERT INTO access(date_start, time_start, date_end, time_end, phone, duration) VALUES('%s', '%s', '%s', '%s', '%s', '%s')" %(a['date_start'], a['time_start'], a['date_end'], a['time_end'], a['phone'], a['duration'])
 
                 self.__cursor.execute(sql)
         self.__connection.commit()
@@ -50,7 +58,7 @@ class DB:
         self.__close()
 
     def __exist(self, access):
-        sql = "SELECT * FROM access WHERE date_start = '%s'" %(access['date_start'])
+        sql = "SELECT * FROM access WHERE date_start = '%s' AND time_start = '%s'" %(access['date_start'], access['time_start'])
 
         if(len(self.__cursor.execute(sql).fetchall())):
             return True

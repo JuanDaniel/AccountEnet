@@ -8,7 +8,7 @@ Created on 23/10/2013
 
 from urllib import urlopen
 from lxml.html import fromstring
-from datetime import datetime
+import datetime
 
 class Extractor:
     '''
@@ -46,22 +46,24 @@ class Extractor:
             row = tr.cssselect('td div')
 
             '''
-            Date Start
+            Date and Time Start
             '''
             date = row[0].text_content().split('-')
             time = row[1].text_content().split(':')
-            date_start = datetime(int(date[2]), int(date[1]), int(date[0]), int(time[0]), int(time[1]), int(time[2]))
+            date_start = datetime.date(int(date[2]), int(date[1]), int(date[0]))
+            time_start = datetime.time(int(time[0]), int(time[1]), int(time[2]))
 
             '''
-            Date End
+            Date and Time End
             '''
             date = row[2].text_content().split('-')
             time = row[3].text_content().split(':')
-            date_end = datetime(int(date[2]), int(date[1]), int(date[0]), int(time[0]), int(time[1]), int(time[2]))
+            date_end = datetime.date(int(date[2]), int(date[1]), int(date[0]))
+            time_end = datetime.time(int(time[0]), int(time[1]), int(time[2]))
 
             phone = row[4].text_content()
             duration = row[5].text_content()
 
-            access.append({'date_start':date_start, 'date_end':date_end, 'phone':phone, 'duration':duration })
+            access.append({'date_start':date_start, 'time_start':time_start, 'date_end':date_end, 'time_end':time_end, 'phone':phone, 'duration':duration })
 
         return access

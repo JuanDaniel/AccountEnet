@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'UI/Main.ui'
 #
-# Created: Fri Oct 25 01:05:28 2013
+# Created: Tue Oct 29 01:15:43 2013
 #      by: PyQt4 UI code generator 4.10.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -88,6 +88,7 @@ class Ui_MainWindow(object):
         self.gridLayout_5.setContentsMargins(10, 10, 10, -1)
         self.gridLayout_5.setObjectName(_fromUtf8("gridLayout_5"))
         self.lineEdit = QtGui.QLineEdit(self.centralwidget)
+        self.lineEdit.setEnabled(False)
         self.lineEdit.setMaximumSize(QtCore.QSize(126, 25))
         self.lineEdit.setObjectName(_fromUtf8("lineEdit"))
         self.gridLayout_5.addWidget(self.lineEdit, 3, 2, 1, 1)
@@ -96,16 +97,19 @@ class Ui_MainWindow(object):
         self.label_5.setObjectName(_fromUtf8("label_5"))
         self.gridLayout_5.addWidget(self.label_5, 0, 1, 1, 1)
         self.label_6 = QtGui.QLabel(self.centralwidget)
+        self.label_6.setEnabled(False)
         self.label_6.setMaximumSize(QtCore.QSize(126, 15))
         self.label_6.setObjectName(_fromUtf8("label_6"))
         self.gridLayout_5.addWidget(self.label_6, 0, 2, 1, 1)
         self.dateEdit = QtGui.QDateEdit(self.centralwidget)
         self.dateEdit.setMinimumSize(QtCore.QSize(130, 0))
+        self.dateEdit.setMinimumDate(QtCore.QDate(2013, 1, 1))
         self.dateEdit.setCalendarPopup(True)
         self.dateEdit.setObjectName(_fromUtf8("dateEdit"))
         self.gridLayout_5.addWidget(self.dateEdit, 3, 1, 1, 1)
         self.dateEdit_2 = QtGui.QDateEdit(self.centralwidget)
         self.dateEdit_2.setMinimumSize(QtCore.QSize(130, 0))
+        self.dateEdit_2.setMinimumDate(QtCore.QDate(2013, 1, 1))
         self.dateEdit_2.setCalendarPopup(True)
         self.dateEdit_2.setObjectName(_fromUtf8("dateEdit_2"))
         self.gridLayout_5.addWidget(self.dateEdit_2, 3, 0, 1, 1)
@@ -144,7 +148,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(_translate("MainWindow", "AccountEnet :: Tu analizador de consumo", None))
         self.tabWidget.setWhatsThis(_translate("MainWindow", "QMainWindow", None))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Gáfica", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Gráfica", None))
         self.tabWidget.setTabToolTip(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Gráfica de consumo", None))
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Fecha Entrada", None))
@@ -162,8 +166,11 @@ class Ui_MainWindow(object):
         self.label_3.setText(_translate("MainWindow", "Consumo:", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Accesos", None))
         self.tabWidget.setTabToolTip(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Registro de accesos", None))
+        self.lineEdit.setToolTip(_translate("MainWindow", "Filtrar teléfono", None))
         self.label_5.setText(_translate("MainWindow", "Fecha Salida", None))
         self.label_6.setText(_translate("MainWindow", "Teléfono", None))
+        self.dateEdit.setToolTip(_translate("MainWindow", "Filtrar fecha", None))
+        self.dateEdit_2.setToolTip(_translate("MainWindow", "Filtrar fecha", None))
         self.label_4.setText(_translate("MainWindow", "Fecha Entrada", None))
         self.pushButton.setText(_translate("MainWindow", "Filtrar", None))
         self.label_2.setText(_translate("MainWindow", "Filtrar resultados", None))

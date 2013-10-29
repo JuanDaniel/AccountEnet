@@ -29,8 +29,16 @@ class Configuration:
         '''
         self.__accounting = config['enet']['accounting']
 
+        '''
+        App's options
+        '''
+        self.__app = config['app']
+
     def getDomain(self):
         return self.__domain
 
     def getAccounting(self):
         return self.__accounting
+
+    def getAppOptions(self):
+        return self.__app

@@ -9,6 +9,8 @@ Created on 24/10/2013
 from DC.FrmMain import FrmMain
 from Common.LoadAccess import LoadAccess
 from PyQt4.QtGui import QTableWidgetItem
+from Common.Configuration import Configuration
+from PyQt4.QtGui import QMessageBox
 
 class ImpMain():
     '''
@@ -20,13 +22,22 @@ class ImpMain():
 
         self.__frm = FrmMain(parent)
         self.__load = LoadAccess()
+        self.__configuration = Configuration()
 
     def execute(self):
         self.__loadAccess()
         self.__frm.show()
 
     def __loadAccess(self):
-        access = self.__load.getAccess()
+        options = self.__configuration.getAppOptions()
+
+        if(options['filtrer']['phone'] == 'False'):
+            try:
+                access = self.__load.getAccess(None, None, options['filtrer']['number'])
+            except Exception, ex:
+                QMessageBox.critical(self.__frm, 'Error', u'Se ha detectado que su configuración está corrupta', QMessageBox.Ok)
+        else:
+            access = self.__load.getAccess()
 
         count = self.__frm.tableWidget.rowCount()
         i = 0
@@ -35,18 +46,16 @@ class ImpMain():
             self.__frm.tableWidget.setRowCount(count)
 
             '''
-            Date Start
+            Date and Time Start
             '''
-            date = row['date_start'].split()
-            self.__frm.tableWidget.setItem(i, 0, QTableWidgetItem(date[0]))
-            self.__frm.tableWidget.setItem(i, 1, QTableWidgetItem(date[1]))
+            self.__frm.tableWidget.setItem(i, 0, QTableWidgetItem(row['date_start']))
+            self.__frm.tableWidget.setItem(i, 1, QTableWidgetItem(row['time_start']))
 
             '''
-            Date End
+            Date and Time End
             '''
-            date = row['date_end'].split()
-            self.__frm.tableWidget.setItem(i, 2, QTableWidgetItem(date[0]))
-            self.__frm.tableWidget.setItem(i, 3, QTableWidgetItem(date[1]))
+            self.__frm.tableWidget.setItem(i, 2, QTableWidgetItem(row['date_end']))
+            self.__frm.tableWidget.setItem(i, 3, QTableWidgetItem(row['time_end']))
 
             '''
             Phone
