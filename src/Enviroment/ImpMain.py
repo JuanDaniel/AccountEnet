@@ -11,6 +11,8 @@ from Common.LoadAccess import LoadAccess
 from PyQt4.QtGui import QTableWidgetItem
 from Common.Configuration import Configuration
 from PyQt4.QtGui import QMessageBox
+from PyQt4.QtCore import SIGNAL
+from Enviroment.ImpCalculateTime import ImpCalculateTime
 
 class ImpMain():
     '''
@@ -23,6 +25,12 @@ class ImpMain():
         self.__frm = FrmMain(parent)
         self.__load = LoadAccess()
         self.__configuration = Configuration()
+
+        '''
+        Signals
+        '''
+        self.__frm.connect(self.__frm.actionConsumo_diario, SIGNAL("activated()"), self.__calculateDialyConsume)
+        self.__frm.connect(self.__frm.pushButton, SIGNAL("clicked()"), self.__filtrerAccess)
 
     def execute(self):
         self.__loadAccess()
@@ -39,11 +47,28 @@ class ImpMain():
         else:
             access = self.__load.getAccess()
 
-        count = self.__frm.tableWidget.rowCount()
+        self.__setAccess(access)
+
+    def __calculateDialyConsume(self):
+        self.__instance = ImpCalculateTime(self.__frm)
+        self.__instance.execute()
+
+    def __filtrerAccess(self):
+        date_start = self.__frm.dateEdit_2.date().toString('yyyy-MM-dd')
+        date_end = self.__frm.dateEdit.date().toString('yyyy-MM-dd')
+        phone = self.__frm.lineEdit.text()
+
+        access = self.__load.getAccess(date_start, date_end, phone)
+
+        self.__setAccess(access)
+
+    def __setAccess(self, access):
+        self.__consume = '0:0:0'
+        self.__frm.tableWidget.setRowCount(0)
+
         i = 0
         for row in access:
-            count = count + 1
-            self.__frm.tableWidget.setRowCount(count)
+            self.__frm.tableWidget.setRowCount(i+1)
 
             '''
             Date and Time Start
@@ -87,6 +112,16 @@ class ImpMain():
 
         hour = int(hour) + rest
 
+        '''
+        Convert the values to format 00:00:00
+        '''
+        if(hour < 10):
+            hour = '0%s'%(hour)
+        if(min < 10):
+            min = '0%s'%(min)
+        if(seg < 10):
+            seg = '0%s'%(seg)
+
         return hour, min, seg
 
     def __changeConsume(self, duration):
@@ -99,4 +134,3 @@ class ImpMain():
 
         consume = "%s:%s:%s" % (hour, min, seg)
         self.__consume = consume
-

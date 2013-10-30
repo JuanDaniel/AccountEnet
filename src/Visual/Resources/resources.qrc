@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>clock.svg</file>
+    <file>stock_keyring.svg</file>
+    <file>accessories-calculator.svg</file>
+    <file>view-refresh.svg</file>
+  </qresource>
+</RCC>

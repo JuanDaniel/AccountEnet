@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'UI/Main.ui'
 #
-# Created: Tue Oct 29 01:15:43 2013
+# Created: Wed Oct 30 01:17:21 2013
 #      by: PyQt4 UI code generator 4.10.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,6 +26,7 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
+        MainWindow.setWindowModality(QtCore.Qt.WindowModal)
         MainWindow.resize(731, 585)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
@@ -119,6 +120,9 @@ class Ui_MainWindow(object):
         self.label_4.setObjectName(_fromUtf8("label_4"))
         self.gridLayout_5.addWidget(self.label_4, 0, 0, 1, 1)
         self.pushButton = QtGui.QPushButton(self.centralwidget)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8(":/icons/view-refresh.svg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton.setIcon(icon)
         self.pushButton.setObjectName(_fromUtf8("pushButton"))
         self.gridLayout_5.addWidget(self.pushButton, 3, 3, 1, 1)
         self.gridLayout.addLayout(self.gridLayout_5, 3, 0, 1, 3)
@@ -136,10 +140,19 @@ class Ui_MainWindow(object):
         self.menubar = QtGui.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 731, 24))
         self.menubar.setObjectName(_fromUtf8("menubar"))
+        self.menuHerramientas = QtGui.QMenu(self.menubar)
+        self.menuHerramientas.setObjectName(_fromUtf8("menuHerramientas"))
+        self.menuAyuda = QtGui.QMenu(self.menubar)
+        self.menuAyuda.setObjectName(_fromUtf8("menuAyuda"))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtGui.QStatusBar(MainWindow)
         self.statusbar.setObjectName(_fromUtf8("statusbar"))
         MainWindow.setStatusBar(self.statusbar)
+        self.actionConsumo_diario = QtGui.QAction(MainWindow)
+        self.actionConsumo_diario.setObjectName(_fromUtf8("actionConsumo_diario"))
+        self.menuHerramientas.addAction(self.actionConsumo_diario)
+        self.menubar.addAction(self.menuHerramientas.menuAction())
+        self.menubar.addAction(self.menuAyuda.menuAction())
 
         self.retranslateUi(MainWindow)
         self.tabWidget.setCurrentIndex(1)
@@ -174,4 +187,9 @@ class Ui_MainWindow(object):
         self.label_4.setText(_translate("MainWindow", "Fecha Entrada", None))
         self.pushButton.setText(_translate("MainWindow", "Filtrar", None))
         self.label_2.setText(_translate("MainWindow", "Filtrar resultados", None))
+        self.menuHerramientas.setTitle(_translate("MainWindow", "Herramientas", None))
+        self.menuAyuda.setTitle(_translate("MainWindow", "Ayuda", None))
+        self.actionConsumo_diario.setText(_translate("MainWindow", "Consumo diario", None))
+        self.actionConsumo_diario.setToolTip(_translate("MainWindow", "Conozca cómo hacer que sus horas le alcancen", None))
 
+import resources_rc

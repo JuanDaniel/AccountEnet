@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -254,6 +257,10 @@
         <property name="text">
          <string>Filtrar</string>
         </property>
+        <property name="icon">
+         <iconset resource="../Resources/resources.qrc">
+          <normaloff>:/icons/view-refresh.svg</normaloff>:/icons/view-refresh.svg</iconset>
+        </property>
        </widget>
       </item>
      </layout>
@@ -292,9 +299,32 @@
      <height>24</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuHerramientas">
+    <property name="title">
+     <string>Herramientas</string>
+    </property>
+    <addaction name="actionConsumo_diario"/>
+   </widget>
+   <widget class="QMenu" name="menuAyuda">
+    <property name="title">
+     <string>Ayuda</string>
+    </property>
+   </widget>
+   <addaction name="menuHerramientas"/>
+   <addaction name="menuAyuda"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionConsumo_diario">
+   <property name="text">
+    <string>Consumo diario</string>
+   </property>
+   <property name="toolTip">
+    <string>Conozca cómo hacer que sus horas le alcancen</string>
+   </property>
+  </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="../Resources/resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

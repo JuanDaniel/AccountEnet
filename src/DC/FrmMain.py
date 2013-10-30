@@ -29,11 +29,6 @@ class FrmMain(QtGui.QMainWindow, Ui_MainWindow):
 
         self.__setDateFiltrer()
 
-        '''
-        Signals
-        '''
-        #self.dateEdit_2.set
-
     def __setConfiguration(self):
         options = self.__configuration.getAppOptions()
 

@@ -34,7 +34,7 @@ class DB:
             if(phone):
                 sql = sql + " AND phone = '%s'" %phone
 
-        if(phone):
+        elif(phone):
             sql = sql + " WHERE phone = '%s'" %phone
 
         access = []
