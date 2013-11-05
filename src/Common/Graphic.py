@@ -79,7 +79,7 @@ class Graphic():
                                         series: [{
                                             type: 'pie',
                                             name: 'Comsumo',
-                                            data: [""" + series + """]
+                                            data: [""" + str(series) + """]
                                         }]
                                     });
                                 });
