@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'UI/CalculateTime.ui'
 #
-# Created: Wed Oct 30 01:58:15 2013
+# Created: Thu Oct 31 10:03:24 2013
 #      by: PyQt4 UI code generator 4.10.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -27,7 +27,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
         MainWindow.setWindowModality(QtCore.Qt.ApplicationModal)
-        MainWindow.resize(448, 185)
+        MainWindow.resize(448, 167)
         MainWindow.setMinimumSize(QtCore.QSize(448, 0))
         MainWindow.setMaximumSize(QtCore.QSize(448, 219))
         MainWindow.setToolButtonStyle(QtCore.Qt.ToolButtonIconOnly)
@@ -43,18 +43,18 @@ class Ui_MainWindow(object):
         self.label_3.setGeometry(QtCore.QRect(90, 20, 109, 16))
         self.label_3.setObjectName(_fromUtf8("label_3"))
         self.label_4 = QtGui.QLabel(self.centralwidget)
-        self.label_4.setGeometry(QtCore.QRect(290, 20, 87, 16))
+        self.label_4.setGeometry(QtCore.QRect(290, 20, 101, 16))
         self.label_4.setObjectName(_fromUtf8("label_4"))
         self.lineEdit = QtGui.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(90, 50, 113, 26))
+        self.lineEdit.setGeometry(QtCore.QRect(90, 40, 113, 26))
         self.lineEdit.setInputMask(_fromUtf8(""))
         self.lineEdit.setObjectName(_fromUtf8("lineEdit"))
         self.lineEdit_2 = QtGui.QLineEdit(self.centralwidget)
-        self.lineEdit_2.setGeometry(QtCore.QRect(290, 50, 113, 26))
+        self.lineEdit_2.setGeometry(QtCore.QRect(290, 40, 113, 26))
         self.lineEdit_2.setInputMask(_fromUtf8(""))
         self.lineEdit_2.setObjectName(_fromUtf8("lineEdit_2"))
         self.label_5 = QtGui.QLabel(self.centralwidget)
-        self.label_5.setGeometry(QtCore.QRect(30, 110, 122, 17))
+        self.label_5.setGeometry(QtCore.QRect(30, 90, 231, 17))
         font = QtGui.QFont()
         font.setPointSize(11)
         font.setBold(True)
@@ -62,7 +62,7 @@ class Ui_MainWindow(object):
         self.label_5.setFont(font)
         self.label_5.setObjectName(_fromUtf8("label_5"))
         self.pushButton = QtGui.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(340, 110, 90, 27))
+        self.pushButton.setGeometry(QtCore.QRect(340, 90, 90, 27))
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(_fromUtf8(":/icons/clock.svg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton.setIcon(icon)
@@ -82,7 +82,8 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(_translate("MainWindow", "AccountEnet :: Distribuya su consumo diario", None))
         self.label_3.setText(_translate("MainWindow", "Horas disponibles", None))
-        self.label_4.setText(_translate("MainWindow", "Total de horas", None))
+        self.label_4.setText(_translate("MainWindow", "Cantidad de días", None))
+        self.lineEdit_2.setText(_translate("MainWindow", "30", None))
         self.label_5.setText(_translate("MainWindow", "Consumo por día:", None))
         self.pushButton.setText(_translate("MainWindow", "Calcular", None))
 

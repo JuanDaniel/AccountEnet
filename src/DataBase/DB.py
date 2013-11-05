@@ -25,12 +25,12 @@ class DB:
         if(date_start):
             sql = sql + " WHERE date_start >= '%s'" %date_start
             if(date_end):
-                sql = sql + " AND date_end <= '%s'" %date_end
+                sql = sql + " AND date_start <= '%s'" %date_end
             if(phone):
                 sql = sql + " AND phone = '%s'" %phone
 
         elif(date_end):
-            sql = sql + " WHERE date_end <= '%s'" %date_end
+            sql = sql + " WHERE date_start <= '%s'" %date_end
             if(phone):
                 sql = sql + " AND phone = '%s'" %phone
 

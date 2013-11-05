@@ -44,5 +44,4 @@ class LoadAccess:
             s.close()
             return True
         except Exception, ex:
-            print ex
             return False

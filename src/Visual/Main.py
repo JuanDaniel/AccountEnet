@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'UI/Main.ui'
 #
-# Created: Wed Oct 30 01:17:21 2013
+# Created: Tue Nov  5 00:51:35 2013
 #      by: PyQt4 UI code generator 4.10.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -37,6 +37,32 @@ class Ui_MainWindow(object):
         self.tabWidget.setObjectName(_fromUtf8("tabWidget"))
         self.tab = QtGui.QWidget()
         self.tab.setObjectName(_fromUtf8("tab"))
+        self.gridLayout_3 = QtGui.QGridLayout(self.tab)
+        self.gridLayout_3.setObjectName(_fromUtf8("gridLayout_3"))
+        self.tabWidget_2 = QtGui.QTabWidget(self.tab)
+        self.tabWidget_2.setTabPosition(QtGui.QTabWidget.East)
+        self.tabWidget_2.setObjectName(_fromUtf8("tabWidget_2"))
+        self.tab_3 = QtGui.QWidget()
+        self.tab_3.setObjectName(_fromUtf8("tab_3"))
+        self.gridLayout_4 = QtGui.QGridLayout(self.tab_3)
+        self.gridLayout_4.setObjectName(_fromUtf8("gridLayout_4"))
+        self.webView = QtWebKit.QWebView(self.tab_3)
+        self.webView.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
+        self.webView.setProperty("url", QtCore.QUrl(_fromUtf8("about:blank")))
+        self.webView.setObjectName(_fromUtf8("webView"))
+        self.gridLayout_4.addWidget(self.webView, 0, 0, 1, 1)
+        self.tabWidget_2.addTab(self.tab_3, _fromUtf8(""))
+        self.tab_4 = QtGui.QWidget()
+        self.tab_4.setObjectName(_fromUtf8("tab_4"))
+        self.gridLayout_6 = QtGui.QGridLayout(self.tab_4)
+        self.gridLayout_6.setObjectName(_fromUtf8("gridLayout_6"))
+        self.webView_2 = QtWebKit.QWebView(self.tab_4)
+        self.webView_2.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
+        self.webView_2.setProperty("url", QtCore.QUrl(_fromUtf8("about:blank")))
+        self.webView_2.setObjectName(_fromUtf8("webView_2"))
+        self.gridLayout_6.addWidget(self.webView_2, 0, 0, 1, 1)
+        self.tabWidget_2.addTab(self.tab_4, _fromUtf8(""))
+        self.gridLayout_3.addWidget(self.tabWidget_2, 0, 0, 1, 1)
         self.tabWidget.addTab(self.tab, _fromUtf8(""))
         self.tab_2 = QtGui.QWidget()
         self.tab_2.setObjectName(_fromUtf8("tab_2"))
@@ -150,18 +176,26 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
         self.actionConsumo_diario = QtGui.QAction(MainWindow)
         self.actionConsumo_diario.setObjectName(_fromUtf8("actionConsumo_diario"))
+        self.actionAcerca_de = QtGui.QAction(MainWindow)
+        self.actionAcerca_de.setObjectName(_fromUtf8("actionAcerca_de"))
         self.menuHerramientas.addAction(self.actionConsumo_diario)
+        self.menuAyuda.addAction(self.actionAcerca_de)
         self.menubar.addAction(self.menuHerramientas.menuAction())
         self.menubar.addAction(self.menuAyuda.menuAction())
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget_2.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(_translate("MainWindow", "AccountEnet :: Tu analizador de consumo", None))
         self.tabWidget.setWhatsThis(_translate("MainWindow", "QMainWindow", None))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Gráfica", None))
+        self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_3), _translate("MainWindow", "Gráfica 1", None))
+        self.tabWidget_2.setTabToolTip(self.tabWidget_2.indexOf(self.tab_3), _translate("MainWindow", "Porcentaje de consumo por cada teléfono", None))
+        self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_4), _translate("MainWindow", "Gráfica 2", None))
+        self.tabWidget_2.setTabToolTip(self.tabWidget_2.indexOf(self.tab_4), _translate("MainWindow", "Consumo diario por cada teléfono", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Gráficas", None))
         self.tabWidget.setTabToolTip(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Gráfica de consumo", None))
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Fecha Entrada", None))
@@ -180,16 +214,20 @@ class Ui_MainWindow(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Accesos", None))
         self.tabWidget.setTabToolTip(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Registro de accesos", None))
         self.lineEdit.setToolTip(_translate("MainWindow", "Filtrar teléfono", None))
-        self.label_5.setText(_translate("MainWindow", "Fecha Salida", None))
+        self.label_5.setText(_translate("MainWindow", "Fecha Fin", None))
         self.label_6.setText(_translate("MainWindow", "Teléfono", None))
         self.dateEdit.setToolTip(_translate("MainWindow", "Filtrar fecha", None))
+        self.dateEdit.setDisplayFormat(_translate("MainWindow", "yyyy-MM-dd", None))
         self.dateEdit_2.setToolTip(_translate("MainWindow", "Filtrar fecha", None))
-        self.label_4.setText(_translate("MainWindow", "Fecha Entrada", None))
+        self.dateEdit_2.setDisplayFormat(_translate("MainWindow", "yyyy-MM-dd", None))
+        self.label_4.setText(_translate("MainWindow", "Fecha Inicio", None))
         self.pushButton.setText(_translate("MainWindow", "Filtrar", None))
         self.label_2.setText(_translate("MainWindow", "Filtrar resultados", None))
         self.menuHerramientas.setTitle(_translate("MainWindow", "Herramientas", None))
         self.menuAyuda.setTitle(_translate("MainWindow", "Ayuda", None))
         self.actionConsumo_diario.setText(_translate("MainWindow", "Consumo diario", None))
         self.actionConsumo_diario.setToolTip(_translate("MainWindow", "Conozca cómo hacer que sus horas le alcancen", None))
+        self.actionAcerca_de.setText(_translate("MainWindow", "Acerca de...", None))
 
+from PyQt4 import QtWebKit
 import resources_rc

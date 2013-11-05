@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>448</width>
-    <height>185</height>
+    <height>167</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -69,19 +69,19 @@
      <rect>
       <x>290</x>
       <y>20</y>
-      <width>87</width>
+      <width>101</width>
       <height>16</height>
      </rect>
     </property>
     <property name="text">
-     <string>Total de horas</string>
+     <string>Cantidad de días</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>50</y>
+      <y>40</y>
       <width>113</width>
       <height>26</height>
      </rect>
@@ -94,7 +94,7 @@
     <property name="geometry">
      <rect>
       <x>290</x>
-      <y>50</y>
+      <y>40</y>
       <width>113</width>
       <height>26</height>
      </rect>
@@ -102,13 +102,16 @@
     <property name="inputMask">
      <string/>
     </property>
+    <property name="text">
+     <string>30</string>
+    </property>
    </widget>
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>110</y>
-      <width>122</width>
+      <y>90</y>
+      <width>231</width>
       <height>17</height>
      </rect>
     </property>
@@ -127,7 +130,7 @@
     <property name="geometry">
      <rect>
       <x>340</x>
-      <y>110</y>
+      <y>90</y>
       <width>90</width>
       <height>27</height>
      </rect>

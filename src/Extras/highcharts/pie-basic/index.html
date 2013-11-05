@@ -1,0 +1,52 @@
+
+                <!DOCTYPE HTML>
+                <html>
+                    <head>
+                        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+                        <title>Consumo por teléfono</title>
+
+                        <script type="text/javascript" src="../js/jquery-1.9.1.js"></script>
+                        <script type="text/javascript">
+                            $(function () {
+                                    $('#container').highcharts({
+                                        chart: {
+                                            plotBackgroundColor: null,
+                                            plotBorderWidth: null,
+                                            plotShadow: false
+                                        },
+                                        title: {
+                                            text: 'Consumo de la cuenta para cada teléfono'
+                                        },
+                                        tooltip: {
+                                            formatter: function(){
+                                                return 'El teléfono <b> '+ this.point.name +'</b> ha consumido un '+ Highcharts.numberFormat(this.percentage, 2) +'%';
+                                            }
+                                        },
+                                        plotOptions: {
+                                            pie: {
+                                                allowPointSelect: true,
+                                                cursor: 'pointer',
+                                                dataLabels: {
+                                                    enabled: true,
+                                                    color: '#000000',
+                                                    connectorColor: '#000000',
+                                                    formatter: function() {
+                                                        return '<b>'+ this.point.name +'</b>: '+ Highcharts.numberFormat(this.percentage, 2) +' %';
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        series: [{
+                                            type: 'pie',
+                                            name: 'Comsumo',
+                                            data: [['76829775', 2.26],['76441847', 0.93],['76470281', 93.88],['76448191', 2.79],]
+                                        }]
+                                    });
+                                });
+                        </script>
+                    </head>
+                    <body>
+                        <script src="../js/highcharts.js"></script>
+                        <div id="container" style="min-width: 600px; min-height: 450px; margin: 0 auto"></div>
+                    </body>
+                </html>

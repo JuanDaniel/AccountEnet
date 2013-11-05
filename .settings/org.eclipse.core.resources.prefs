@@ -1,13 +1,17 @@
-#Wed Oct 30 01:40:06 CDT 2013
+#Tue Nov 05 00:55:18 CST 2013
 eclipse.preferences.version=1
 encoding//src/Common/Configuration.py=utf-8
 encoding//src/Common/Extractor.py=utf-8
+encoding//src/Common/Graphic.py=utf-8
 encoding//src/Common/LoadAccess.py=utf-8
 encoding//src/Common/Singleton.py=utf-8
+encoding//src/DC/FrmAbout.py=utf-8
 encoding//src/DC/FrmCalculateTime.py=utf-8
 encoding//src/DC/FrmMain.py=utf-8
 encoding//src/DataBase/DB.py=utf-8
+encoding//src/Enviroment/ImpAbout.py=utf-8
 encoding//src/Enviroment/ImpCalculateTime.py=utf-8
 encoding//src/Enviroment/ImpMain.py=utf-8
 encoding//src/Main.py=utf-8
 encoding//src/Visual/CalculateTime.py=utf-8
+encoding//src/Visual/Main.py=utf-8

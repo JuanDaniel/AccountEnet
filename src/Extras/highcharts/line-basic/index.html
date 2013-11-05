@@ -1,0 +1,59 @@
+
+                <!DOCTYPE HTML>
+                <html>
+                    <head>
+                        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+                        <title>Consumo por teléfono</title>
+
+                        <script type="text/javascript" src="../js/jquery-1.9.1.js"></script>
+                        <script type="text/javascript">
+                            $(function () {
+                                $('#container').highcharts({
+                                    chart: {
+                                        type: 'line',
+                                        marginRight: 130,
+                                        marginBottom: 25
+                                    },
+                                    title: {
+                                        text: 'Consumo diario por cada teléfono',
+                                        x: -20 //center
+                                    },
+                                    xAxis: {
+                                        categories: ['1', '2', '3', '4', '5', '6',
+                                            '7', '8', '9', '10', '11', '12', '13', '14', '15',
+                                            '16', '17', '18', '19', '20', '21', '22', '23', '24',
+                                            '25', '26', '27', '28', '29', '30', '31']
+                                    },
+                                    yAxis: {
+                                        title: {
+                                            text: 'Consumo (minutos)'
+                                        },
+                                        plotLines: [{
+                                            value: 0,
+                                            width: 1,
+                                            color: '#808080'
+                                        }]
+                                    },
+                                    tooltip: {
+                                        formatter: function(){
+                                                return 'Día ' + this.x +'<br />El teléfono <b> '+ this.series.name +'</b> ha consumido '+ this.y +' minutos';
+                                            }
+                                    },
+                                    legend: {
+                                        layout: 'vertical',
+                                        align: 'right',
+                                        verticalAlign: 'top',
+                                        x: -10,
+                                        y: 100,
+                                        borderWidth: 0
+                                    },
+                                    series: [{"data": [8, 3, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "name": "76829775"}, {"data": [0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "name": "76441847"}, {"data": [225, 328, 152, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "name": "76470281"}, {"data": [0, 0, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "name": "76448191"}]
+                                });
+                            });
+                        </script>
+                    </head>
+                    <body>
+                        <script src="../js/highcharts.js"></script>
+                        <div id="container" style="min-width: 600px; min-height: 450px; margin: 0 auto"></div>
+                    </body>
+                </html>

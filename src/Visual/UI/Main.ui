@@ -27,15 +27,71 @@
        <string>QMainWindow</string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
-        <string>Gráfica</string>
+        <string>Gráficas</string>
        </attribute>
        <attribute name="toolTip">
         <string>Gráfica de consumo</string>
        </attribute>
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="0">
+         <widget class="QTabWidget" name="tabWidget_2">
+          <property name="tabPosition">
+           <enum>QTabWidget::East</enum>
+          </property>
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <widget class="QWidget" name="tab_3">
+           <attribute name="title">
+            <string>Gráfica 1</string>
+           </attribute>
+           <attribute name="toolTip">
+            <string>Porcentaje de consumo por cada teléfono</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_4">
+            <item row="0" column="0">
+             <widget class="QWebView" name="webView" native="true">
+              <property name="contextMenuPolicy">
+               <enum>Qt::NoContextMenu</enum>
+              </property>
+              <property name="url" stdset="0">
+               <url>
+                <string>about:blank</string>
+               </url>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_4">
+           <attribute name="title">
+            <string>Gráfica 2</string>
+           </attribute>
+           <attribute name="toolTip">
+            <string>Consumo diario por cada teléfono</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_6">
+            <item row="0" column="0">
+             <widget class="QWebView" name="webView_2" native="true">
+              <property name="contextMenuPolicy">
+               <enum>Qt::NoContextMenu</enum>
+              </property>
+              <property name="url" stdset="0">
+               <url>
+                <string>about:blank</string>
+               </url>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="tab_2">
        <attribute name="title">
@@ -170,7 +226,7 @@
          </size>
         </property>
         <property name="text">
-         <string>Fecha Salida</string>
+         <string>Fecha Fin</string>
         </property>
        </widget>
       </item>
@@ -208,6 +264,9 @@
           <day>1</day>
          </date>
         </property>
+        <property name="displayFormat">
+         <string>yyyy-MM-dd</string>
+        </property>
         <property name="calendarPopup">
          <bool>true</bool>
         </property>
@@ -231,6 +290,9 @@
           <day>1</day>
          </date>
         </property>
+        <property name="displayFormat">
+         <string>yyyy-MM-dd</string>
+        </property>
         <property name="calendarPopup">
          <bool>true</bool>
         </property>
@@ -248,7 +310,7 @@
          </size>
         </property>
         <property name="text">
-         <string>Fecha Entrada</string>
+         <string>Fecha Inicio</string>
         </property>
        </widget>
       </item>
@@ -309,6 +371,7 @@
     <property name="title">
      <string>Ayuda</string>
     </property>
+    <addaction name="actionAcerca_de"/>
    </widget>
    <addaction name="menuHerramientas"/>
    <addaction name="menuAyuda"/>
@@ -322,7 +385,19 @@
     <string>Conozca cómo hacer que sus horas le alcancen</string>
    </property>
   </action>
+  <action name="actionAcerca_de">
+   <property name="text">
+    <string>Acerca de...</string>
+   </property>
+  </action>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QWebView</class>
+   <extends>QWidget</extends>
+   <header>QtWebKit/QWebView</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../Resources/resources.qrc"/>
  </resources>

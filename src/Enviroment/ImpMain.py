@@ -11,8 +11,11 @@ from Common.LoadAccess import LoadAccess
 from PyQt4.QtGui import QTableWidgetItem
 from Common.Configuration import Configuration
 from PyQt4.QtGui import QMessageBox
-from PyQt4.QtCore import SIGNAL
+from PyQt4.QtCore import SIGNAL, QUrl
 from Enviroment.ImpCalculateTime import ImpCalculateTime
+from Common.Graphic import Graphic
+from Enviroment.ImpAbout import ImpAbout
+import os
 
 class ImpMain():
     '''
@@ -30,6 +33,7 @@ class ImpMain():
         Signals
         '''
         self.__frm.connect(self.__frm.actionConsumo_diario, SIGNAL("activated()"), self.__calculateDialyConsume)
+        self.__frm.connect(self.__frm.actionAcerca_de, SIGNAL("activated()"), self.__about)
         self.__frm.connect(self.__frm.pushButton, SIGNAL("clicked()"), self.__filtrerAccess)
 
     def execute(self):
@@ -39,15 +43,27 @@ class ImpMain():
     def __loadAccess(self):
         options = self.__configuration.getAppOptions()
 
+        date_start = self.__frm.dateEdit_2.date().toString('yyyy-MM-dd')
+        date_end = self.__frm.dateEdit.date().toString('yyyy-MM-dd')
+
         if(options['filtrer']['phone'] == 'False'):
             try:
-                access = self.__load.getAccess(None, None, options['filtrer']['number'])
+                access = self.__load.getAccess(date_start, date_end, options['filtrer']['number'])
             except Exception, ex:
                 QMessageBox.critical(self.__frm, 'Error', u'Se ha detectado que su configuración está corrupta', QMessageBox.Ok)
         else:
-            access = self.__load.getAccess()
+            access = self.__load.getAccess(date_start, date_end)
 
+        self.__generateGraphic(access)
         self.__setAccess(access)
+
+    def __generateGraphic(self, access):
+        graphic = Graphic(access)
+
+        graphic.generatePie()
+        graphic.generatePolygon()
+
+        self.__reloadGraphic()
 
     def __calculateDialyConsume(self):
         self.__instance = ImpCalculateTime(self.__frm)
@@ -60,6 +76,7 @@ class ImpMain():
 
         access = self.__load.getAccess(date_start, date_end, phone)
 
+        self.__generateGraphic(access)
         self.__setAccess(access)
 
     def __setAccess(self, access):
@@ -96,10 +113,10 @@ class ImpMain():
 
             i = i + 1
 
-        self.__consume = '%s:%s:%s' %(self.__convert_time(self.__consume))
+        self.__consume = '%s:%s:%s' %(self.__convertTime(self.__consume))
         self.__frm.label_3.setText('Consumo %s' %self.__consume)
 
-    def __convert_time(self, time):
+    def __convertTime(self, time):
         '''
         Created by ybarrio
         '''
@@ -134,3 +151,11 @@ class ImpMain():
 
         consume = "%s:%s:%s" % (hour, min, seg)
         self.__consume = consume
+
+    def __reloadGraphic(self):
+        self.__frm.webView.setUrl(QUrl(os.path.join('Extras', 'highcharts', 'pie-basic', 'index.html')))
+        self.__frm.webView_2.setUrl(QUrl(os.path.join('Extras', 'highcharts', 'line-basic', 'index.html')))
+
+    def __about(self):
+        self.__instance = ImpAbout(self.__frm)
+        self.__instance.execute()
