@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'UI/About.ui'
 #
-# Created: Tue Nov  5 01:07:24 2013
+# Created: Wed Nov  6 20:33:41 2013
 #      by: PyQt4 UI code generator 4.10.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -30,6 +30,9 @@ class Ui_MainWindow(object):
         MainWindow.resize(562, 356)
         MainWindow.setMinimumSize(QtCore.QSize(562, 356))
         MainWindow.setMaximumSize(QtCore.QSize(562, 356))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8(":/icons/applications-office_icon.svg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        MainWindow.setWindowIcon(icon)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.gridLayout = QtGui.QGridLayout(self.centralwidget)

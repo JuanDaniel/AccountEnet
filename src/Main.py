@@ -8,6 +8,7 @@ Created on 23/10/2013
 
 from PyQt4.QtGui import QApplication
 from Enviroment.ImpMain import ImpMain
+import sip
 
 if __name__ == '__main__':
     app = QApplication([])

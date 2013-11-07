@@ -28,6 +28,10 @@
   <property name="windowTitle">
    <string>AccountEnet :: Distribuya su consumo diario</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../Resources/resources.qrc">
+    <normaloff>:/icons/applications-office_icon.svg</normaloff>:/icons/applications-office_icon.svg</iconset>
+  </property>
   <property name="toolButtonStyle">
    <enum>Qt::ToolButtonIconOnly</enum>
   </property>

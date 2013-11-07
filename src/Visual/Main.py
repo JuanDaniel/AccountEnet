@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'UI/Main.ui'
 #
-# Created: Tue Nov  5 00:51:35 2013
+# Created: Wed Nov  6 20:33:25 2013
 #      by: PyQt4 UI code generator 4.10.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -28,6 +28,9 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
         MainWindow.setWindowModality(QtCore.Qt.WindowModal)
         MainWindow.resize(731, 585)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8(":/icons/applications-office_icon.svg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        MainWindow.setWindowIcon(icon)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.gridLayout = QtGui.QGridLayout(self.centralwidget)
@@ -146,9 +149,9 @@ class Ui_MainWindow(object):
         self.label_4.setObjectName(_fromUtf8("label_4"))
         self.gridLayout_5.addWidget(self.label_4, 0, 0, 1, 1)
         self.pushButton = QtGui.QPushButton(self.centralwidget)
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(_fromUtf8(":/icons/view-refresh.svg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton.setIcon(icon)
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap(_fromUtf8(":/icons/view-refresh.svg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton.setIcon(icon1)
         self.pushButton.setObjectName(_fromUtf8("pushButton"))
         self.gridLayout_5.addWidget(self.pushButton, 3, 3, 1, 1)
         self.gridLayout.addLayout(self.gridLayout_5, 3, 0, 1, 3)

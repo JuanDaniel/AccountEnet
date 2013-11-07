@@ -16,6 +16,10 @@
   <property name="windowTitle">
    <string>AccountEnet :: Tu analizador de consumo</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../Resources/resources.qrc">
+    <normaloff>:/icons/applications-office_icon.svg</normaloff>:/icons/applications-office_icon.svg</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="1" column="0" colspan="3">

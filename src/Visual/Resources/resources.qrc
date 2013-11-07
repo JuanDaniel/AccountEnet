@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="icons">
+    <file>applications-office_icon.svg</file>
     <file>applications-office.svg</file>
     <file>clock.svg</file>
     <file>stock_keyring.svg</file>
