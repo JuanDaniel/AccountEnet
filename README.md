@@ -1,6 +1,5 @@
 # AccountEnet #
 
-## Descripción ##
 Aplicación creada con el fin de ayudarle a administrar su consumo de la cuota de internet.
 Con AccountEnet usted será capaz de poder generar reportes y gráficos estadísticos de los accesos aplicando filtros como rango de fecha, teléfono y más...
 
@@ -13,6 +12,7 @@ Hasta el momento el uso de la aplicación se limita solo a los usuarios que se c
 Se pretende en un futuro poder expandir el uso de la aplicación para otros proveedores de internet.
 
 ## Detalles técnicos ##
+Algunos detalles técnicos que pueden ser de mucho interés...
 
  ### Artefactos de desarrollo ###
   * Lenguaje de programación Python 2.7
